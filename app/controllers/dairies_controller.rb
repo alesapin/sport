@@ -78,7 +78,7 @@ class DairiesController < ApplicationController
 	def destroy
 		@dairy.destroy
 		respond_to do |format|
-			format.html { redirect_to dairies_url, notice: 'Dairy was successfully destroyed.' }
+			format.html { redirect_to lk_today_url  }
 			format.json { head :no_content }
 		end
 	end

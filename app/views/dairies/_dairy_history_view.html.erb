@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="col-md-4 table-responsive">
+  		<table class="table table-bordered" align="center">
+			<thead>
+				<tr>
+					<th colspan="4" ><h3><strong><%= dairy.exercise.name %></strong></h3> </th>
+				</tr>
+				<tr>
+					<td>Подход</td>
+            		<td>Повторов</td>
+            		<td>Вес</td>
+					<td>Выполнено</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% i=0 %>
+				<% dairy.attempts.each do |attempt| %>
+					<tr>
+						<td><%= i+=1%></td>
+						<td><%=attempt.repeats%></td>
+						<td><%=attempt.weight%></td>
+						<% if attempt.done%>
+							<td><span class="glyphicon glyphicon-ok"></span></td>
+						<% else %>
+							<td><span class="glyphicon glyphicon-remove"></span></td>
+						<% end %>
+					</tr>
+				<% end %>		
+			</tbody>
+  		</table>
+	</div>
+</div>

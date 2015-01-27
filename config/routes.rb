@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 	end
 	controller :personal_office do 
 		get 'lk/today' => :today
+		get 'lk' => :today
+		get 'lk/history' => :history
 	end
 
 	resources :users

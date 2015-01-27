@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="container"
+<div id="navbar" class="navbar-collapse collapse">
+	<ul class="nav navbar-nav">
+		<li><a href="#">Главная</a></li>
+		<li><%= link_to "Упражнения",exercises_path%></li>
+		<li><a href="#">Статьи</a></li>
+	</ul>
+</div>
+</div>
+</nav>
+<% if params[:controller] ==  "personal_office" %>
+	<h1>Херак</h1>
+	<%= render partial: "layouts/personal_office"%>
+<% else %>
+	<%= yield %>
+<% end %>
 
 </body>
 </html>

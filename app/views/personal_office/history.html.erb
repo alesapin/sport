@@ -1,0 +1,16 @@
+<h1>История</h1>
+<hr>
+<div>
+	<%@sorted_by_date.each do |when_date,dairies| %>
+		<% if dairies.size == 0 %>
+			<% next %>
+		<% end %>
+		<h2><%= when_date%></h2>
+		<hr>
+		<% dairies.each do |dairy|%>
+			<% if dairy.attempts.count > 0%>
+				<%= render :partial => 'dairies/dairy_history_view',locals: {dairy: dairy}%>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>
