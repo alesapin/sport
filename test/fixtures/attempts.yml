@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gymset_id: 
+  weight: 1.5
+  repeats: 1
+  done: false
+
+two:
+  gymset_id: 
+  weight: 1.5
+  repeats: 1
+  done: false

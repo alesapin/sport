@@ -1,0 +1,18 @@
+<div class="container">
+	<% if flash[:alert] %>
+		<p id="notice"><%= flash[:alert] %> </p>
+	<% end %>
+	<%= form_tag '/login',:class => 'form-signin' do %>
+		<h2 class="form-signin-heading">Пожалуйста,войдите</h2>
+		
+		<%= label_tag :login, 'Логин',:class => 'sr-only' %>
+		<%= text_field_tag :login, params[:login],{:class => 'form-control',:placeholder => 'Логин'} %>
+
+		<%= label_tag :password,'Пароль',:class => 'sr-only'%>
+		<%= password_field_tag :password,params[:password],{:class => 'form-control',:placeholder => 'Пароль'} %>
+		<div>
+			<%= submit_tag "Войти",:class => 'btn btn-lg btn-primary btn-block my-button'%>
+			<%= link_to "Зарегистрироваться",new_user_path,:class =>"btn btn-lg btn-success" %>
+		</div>
+	<% end %>
+</div>

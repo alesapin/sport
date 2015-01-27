@@ -1,0 +1,52 @@
+<div>
+<% @user.dairies.where(:when => Dairy.get_today_start..Dairy.get_today_end).each do |dairy|%> 
+	<% div_name = "ex"+dairy.id.to_s %>  
+        <div class="row">
+		<% if dairy.done? %>
+		<div onclick="hider('<%= div_name %>');" class="row panel panel-success">
+		<% else%>
+		<div onclick="hider('<%= div_name %>');" class="row panel panel-danger">
+		<%end %>
+		<div class="row panel-heading">
+        	<div class="col-md-1"><%= dairy.exercise.name %></div>
+        	<div class="col-md-1"><%= dairy.when %></div>
+        	<div class="col-md-1"><%= button_to 'Выполнить',done_path(dairy_id: dairy.id),method: :post%></div>
+		</div>
+		</div>
+		<!--Подходы -->
+		<div id="<%=div_name%>"class="col-md-offset-1" style="display:none;">
+			<% i=0 %>
+			<div class="row">
+				<div class="col-md-1">Подход</div>
+				<div class="col-md-1">Повторов</div>
+				<div class="col-md-1">Вес</div>
+				<div class="col-md-1"></div>
+			</div>
+			<% dairy.attempts.each do |attempt| %>
+				<% if attempt.done%>
+				<div class="row" style="background: #dff0d8;">
+				<%else%>
+				<div class="row" style="background: #f2dede;">
+				<%end %>
+					<div class="col-md-1"> <%=i+=1 %></div>
+					<div class="col-md-1"> <%= attempt.repeats%></div>
+					<div class="col-md-1"> <%= attempt.weight%></div>
+					<div class="col-md-1"><%= button_to 'Выполнить',done_att_path(attempt_id: attempt.id),method: :post%></div>
+				</div>
+				<br>
+			<% end %>
+			<div id="add_attempt" style="display:none;">
+				<%= render :partial => 'attempts/attempt_small_form',locals: {dairy: dairy}%>
+			</div>
+			<button id="add_att_button" onclick="$('#add_attempt').show();$(this).hide();">Добавить подход</button>
+			<br>
+			<br>
+		</div>
+    </div>
+<% end %>
+</div>
+<div id="add_div" style="display:none;">
+    <%= render :partial => 'dairies/dairy_small_form' %>
+</div>
+<button id="add_button" onclick="$('#add_div').show();$('#add_button').hide();">Добавить упражнение</button>
+

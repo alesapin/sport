@@ -1,0 +1,31 @@
+<%= form_for(Dairy.new) do |f|%>
+	<fieldset>
+		<legend>Введите данные о упражнении</legend>
+		<%= f.hidden_field :user_id, value: @user.id%>
+
+		<%= f.label :exercise_id,'Упражнение:'%>
+		<%= f.select :exercise_id,  options_from_collection_for_select(Exercise.all,"id","name") %>
+		
+		<%= f.label :when,'Когда:'%>
+		<%= f.date_select :when, :order => [:day, :month, :year]%>
+		
+		<%= f.hidden_field :done,value: false%>
+		<br>
+		<br>
+		<div id="sets_id">
+			<table id="atts">
+				<%10.times do |i| %>
+					<tr>
+						<%= label_tag "Подход #{i+1}: " %>
+						<%= label_tag 'Число повторов:' %>
+						<%= text_field_tag "repeat[#{i}]"%>
+						<%= label_tag ' Вес:' %>
+						<%= text_field_tag "weight[#{i}]"%>
+						<br>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+		<%= f.submit "Создать",onclick: "$('#add_div').hide();$('#add_button').show();)" %>
+	</fieldset>
+<% end %>

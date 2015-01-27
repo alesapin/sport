@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @dairy.user %>
+</p>
+
+<p>
+  <strong>Exercise:</strong>
+  <%= @dairy.exercise %>
+</p>
+
+<p>
+  <strong>Attempts:</strong>
+  <%= @dairy.attempts %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @dairy.weight %>
+</p>
+
+<p>
+  <strong>When:</strong>
+  <%= @dairy.when %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @dairy.done %>
+</p>
+
+<%= link_to 'Edit', edit_dairy_path(@dairy) %> |
+<%= link_to 'Back', dairies_path %>

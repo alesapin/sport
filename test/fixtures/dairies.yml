@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  exercise_id: 
+  attempts: 1
+  weight: 1.5
+  when: 2015-01-22
+  done: false
+
+two:
+  user_id: 
+  exercise_id: 
+  attempts: 1
+  weight: 1.5
+  when: 2015-01-22
+  done: false

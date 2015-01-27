@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gymset:</strong>
+  <%= @attempt.gymset %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @attempt.weight %>
+</p>
+
+<p>
+  <strong>Repeats:</strong>
+  <%= @attempt.repeats %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @attempt.done %>
+</p>
+
+<%= link_to 'Edit', edit_attempt_path(@attempt) %> |
+<%= link_to 'Back', attempts_path %>

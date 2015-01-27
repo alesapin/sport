@@ -1,0 +1,11 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.sidebar {
+	position: fixed !important; 
+	background-color: #F5F5F5;
+	border-right: 1px solid #EEE;
+	bottom: 0px;
+	left: 0px;
+	top: 0px;
+}

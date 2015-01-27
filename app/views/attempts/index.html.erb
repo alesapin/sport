@@ -1,0 +1,29 @@
+<h1>Listing attempts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Repeats</th>
+      <th>Done</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attempts.each do |attempt| %>
+      <tr>
+        <td><%= attempt.weight %></td>
+        <td><%= attempt.repeats %></td>
+        <td><%= attempt.done %></td>
+        <td><%= link_to 'Show', attempt %></td>
+        <td><%= link_to 'Edit', edit_attempt_path(attempt) %></td>
+        <td><%= link_to 'Destroy', attempt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attempt', new_attempt_path %>

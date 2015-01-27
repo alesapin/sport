@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+
+<div class="row">
+	<div class="col-sm-3 col-md-2 sidebar">
+		<h3>Добро пожаловать <%=@user.login %> </h3>
+		<ul class="nav nav-sidebar">
+			<li class="active"><a href="#">Сегодня</a></li>
+			<li><a href="#">План</a></li>
+			<li><a href="#">Прогресс</a></li>
+			<li><a href="#">История</a></li>
+			<li><a href="#">Календарь</a></li>
+		</ul>
+	</div>
+	<div id="ex_list" class="col-md-9 col-md-push-3" >
+		<table border=3px>
+		<% @user.dairies.where(:when => Dairy.get_today_start..Dairy.get_today_end).each do |dairy|%>	
+			<% if dairy.done%>
+				<tr bgcolor="green">
+			<% else %>	
+				<tr bgcolor="red">
+			<% end %>
+				<td>
+					<%= dairy.exercise.name %>	
+				<td>
+				<td><%= dairy.when %></td>
+				<td><%= button_to 'Выполнить',done_path(dairy_id: dairy.id),method: :post%></td>
+			</tr>
+		<% end %>
+		</table>
+		<div id="add_div" style="display:none;">
+			<%= render('diary_form')%>
+		</div>
+		<button id="add_button" onclick="$('#add_div').show();$('#add_button').hide();return false;">Добавить упражнение</button>
+	</div>
+</div>
+
+</div>

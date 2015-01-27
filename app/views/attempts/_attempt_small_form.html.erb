@@ -1,0 +1,11 @@
+<%= form_for(Attempt.new) do |f|%>
+	<fieldset>
+		<legend>Добавление подхода</legend>
+		<%= f.hidden_field :dairy_id,value: dairy.id%>
+		<%= f.label :repeats,"Число повторов"%>
+		<%= f.text_field :repeats%>
+		<%= f.label :weight, "Вес"%>
+		<%= f.text_field :weight%>
+		<%= f.submit "Создать подход",onclick: "$('#add_attempt').hide();$('#add_att_button').show();"%>
+	</fieldset>
+<% end %>
